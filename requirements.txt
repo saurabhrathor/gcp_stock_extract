@@ -1,0 +1,3 @@
+alpha-vantage==2.2.0
+pandas==0.25.3
+pandas-gbq==0.13.2
