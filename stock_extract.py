@@ -4,7 +4,8 @@ import pandas as pd
 from pandas.io import gbq
 import pdb
 import datetime
-pdb.set_trace()
+
+#pdb.set_trace()
 
 ALPHA_VANTAGE_API_KEY = '47MP5C3EGNFQ177U'
 yesterday = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
@@ -18,7 +19,7 @@ intraday_data_sort = intraday_data.sort_index()
 intraday_data_sort.columns = ['volume', 'open', 'high', 'close', 'low']
 intraday_data_sort.reset_index(level=0, inplace=True)
 
-intraday_data_filter = intraday_data_sort[intraday_data_sort['date'] > yesterday]
+intraday_data_filter = intraday_data_sort[intraday_data_sort['date'] >= yesterday]
 
 intraday_data_filter.to_csv('dump.csv')
 
